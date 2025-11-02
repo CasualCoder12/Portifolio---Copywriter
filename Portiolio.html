@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anas Khan - Copywriter Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Animated Particle Background */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Animated Blobs */
+        .bg-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.08;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #FF204E, transparent);
+            top: -10%;
+            right: -10%;
+        }
+
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #A0153E, transparent);
+            bottom: -10%;
+            left: -10%;
+            animation-delay: 5s;
+        }
+
+        .blob3 {
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, #00224D, transparent);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 30px;
+            padding: 60px 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 20px;
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 32, 78, 0.2);
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin: 20px 40px;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .logo {
+            font-family: 'Righteous', 'Impact', cursive, sans-serif;
+            font-size: 40px;
+            background: linear-gradient(135deg, #FF204E, #A0153E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: 'ANAS KHAN';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.8) 50%,
+                transparent 60%,
+                transparent 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 100%;
+            animation: textShineEffect 3s linear infinite;
+        }
+
+        @keyframes textShineEffect {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #FF204E;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .typewriter {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff, #FF204E, #A0153E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease infinite;
+            overflow: hidden;
+            white-space: normal;
+            display: block;
+            width: 100%;
+        }
+
+        .typewriter::after {
+            content: '|';
+            color: #FF204E;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 28px);
+            color: #aaa;
+            font-weight: 300;
+            margin-top: 40px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 120px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff, #FF204E, #A0153E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 0 0 40px rgba(255, 32, 78, 0.3);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* Card Effects */
+        .card {
+            position: relative;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, #FF204E, #A0153E, #5D0E41);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 32, 78, 0.3);
+            border-color: #FF204E;
+        }
+
+        .card-title {
+            font-size: 28px;
+            color: #FF204E;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Portfolio Bubbles - NEW SECTION */
+        .bubbles-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 60px 20px;
+        }
+
+        .bubble-item {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,32,78,0.15), rgba(160,21,62,0.15));
+            border: 3px solid rgba(255,32,78,0.5);
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+        }
+
+        .bubble-item::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF204E, #A0153E);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: pulseGlow 3s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                opacity: 0;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.3;
+                transform: scale(1.05);
+            }
+        }
+
+        .bubble-item:hover::before {
+            opacity: 0.6;
+            animation: none;
+        }
+
+        .bubble-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 60px rgba(255, 32, 78, 0.5);
+        }
+
+        .bubble-item.expanded {
+            width: 800px;
+            height: auto;
+            min-height: 400px;
+            border-radius: 30px;
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(255, 32, 78, 0.6);
+            background: linear-gradient(135deg, rgba(255,32,78,0.2), rgba(160,21,62,0.2));
+        }
+
+        .bubble-item.expanded::before {
+            border-radius: 30px;
+        }
+
+        .bubble-item.inactive {
+            transform: scale(0.85);
+            opacity: 0.3;
+            filter: blur(3px);
+        }
+
+        .bubble-header {
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .bubble-item.expanded .bubble-header {
+            margin-bottom: 30px;
+        }
+
+        .bubble-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FF204E;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .bubble-subtitle {
+            font-size: 16px;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        .bubble-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            width: 100%;
+            padding: 0;
+        }
+
+        .bubble-item.expanded .bubble-content {
+            max-height: 2000px;
+            padding: 0 40px 40px;
+        }
+
+        .email-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .email-item {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,32,78,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .email-item:hover::before {
+            left: 100%;
+        }
+
+        .email-item:hover {
+            border-color: #FF204E;
+            background: rgba(255,32,78,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 32, 78, 0.3);
+        }
+
+        .email-item h4 {
+            font-size: 16px;
+            color: #FF204E;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .email-item p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,32,78,0.3);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .niche-card {
+            padding: 25px;
+            background: rgba(255,32,78,0.1);
+            border-left: 4px solid #FF204E;
+            border-radius: 10px;
+        }
+
+        .niche-card h4 {
+            color: #FF204E;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .niche-card p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        #cta {
+            text-align: center;
+            padding: 150px 40px;
+        }
+
+        .offer-box {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255,32,78,0.2), rgba(160,21,62,0.2));
+            border: 2px solid #FF204E;
+            padding: 25px 50px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 25px 70px;
+            background: linear-gradient(135deg, #FF204E, #A0153E);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 700;
+            box-shadow: 0 20px 60px rgba(255,32,78,0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 70px rgba(255,32,78,0.6);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 10px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f0f0f0;
+            border: none;
+            color: #333;
+            font-size: 28px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #FF204E;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, #FF204E, #A0153E);
+            padding: 40px 30px 30px 30px;
+            border-radius: 10px 10px 0 0;
+            color: white;
+        }
+
+        .email-subject {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .email-from {
+            font-size: 14px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .email-body {
+            background: #ffffff;
+            padding: 40px 35px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .email-body p {
+            margin-bottom: 20px;
+        }
+
+        .email-footer {
+            padding: 25px 35px;
+            background: #f8f8f8;
+            border-radius: 0 0 10px 10px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,32,78,0.2);
+            color: #666;
+        }
+
+        /* Floating Contact Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .gmail-btn {
+            background: linear-gradient(135deg, #EA4335, #D33B2C);
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .contact-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bubbles-container {
+                flex-direction: column;
+            }
+
+            .bubble-item {
+                width: 260px;
+                height: 260px;
+            }
+
+            .bubble-item.expanded {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .bubble-title {
+                font-size: 36px;
+            }
+
+            .email-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Animated Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">ANAS KHAN</div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#about" class="nav-link">About Me</a>
+                <a href="#cta" class="nav-link">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="typewriter">People Have Feelings, And I Capture Them Inside My Copy.</h1>
+                <p class="hero-subtitle">Let A professional Take Care Of Your AI, Fitness, and beauty Copywriting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 class="section-title">What I Do</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3 class="card-title">Website Copy</h3>
+                        <p class="card-desc">I create emotionally appealing, well-structured website content layouts that turn visitors into customers.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Email Copy</h3>
+                        <p class="card-desc">A well-structured email sequence that builds trust, nurtures leads, and boosts sales without any spam emails.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Landing Pages</h3>
+                        <p class="card-desc">I design high-converting landing pages with persuasive copy that makes visitors take immediate action.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Product Descriptions</h3>
+                        <p class="card-desc">I write a product description that doesn't sound too salesy. Rather, it makes the reader really hooked on the details.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Brand Awareness</h3>
+                        <p class="card-desc">I tell brand identity through stories. Not simple stories but rather relatable, trustworthy stories.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Graphic Designing</h3>
+                        <p class="card-desc">I create product ads with such clarity that one look is enough to understand the product.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section - NEW BUBBLE DESIGN -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 class="section-title">My Work</h2>
+                <div class="bubbles-container">
+                    <!-- AI Bubble -->
+                    <div class="bubble-item" data-category="ai" onclick="toggleBubble(this)">
+                        <div class="bubble-header">
+                            <h3 class="bubble-title">AI</h3>
+                            <p class="bubble-subtitle">7 Email Sequences</p>
+                        </div>
+                        <div class="bubble-content">
+                            <div class="email-list">
+                                <div class="email-item" onclick="openModal(event, 'AI Email 1', 'Subject: People are getting sued over Terms and Conditions!\n\nHey [FIRST_NAME]!\n\nI almost made this stupid yet costly mistake that other people are making without knowing it. And maybe you did it too!\n\nYou know those endless terms and conditions that pop up before you install an app? Be honest---you probably just scroll past and hit Accept, right?\n\nWhat if I told you that hidden inside those conditions could be something you would never agree to---yet you accepted it without even noticing?\n\nLike accepting to do 5 years of slavery for the company or agreeing to pay 10 grand legally?\n\nAnd the scary part is that, once you tick that box, you are legally required to do whatever it says in the conditions? Or else, you know the consequences.\n\nWhat if there were a solution to this problem? What if there was a way to read all those conditions without spending hours? Yes, there is a solution to this problem.\n\nThe Solution is in this free video: [LANDING PAGE LINK], which we made for our audience, so they never have to suffer from this costly problem.\n\nUntil next time, take care\n\nAnas Khan')">
+                                    <h4>Email 1 - Hook & Introduce Problem</h4>
+                                    <p>People getting sued over T&C's</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'AI Email 2', 'Subject: The Dark Pattern Behind Every Legal Page!\n\nHey [FIRST_NAME]!\n\nDid you know about the recent viral scam technique used by many software companies?\n\nAll these companies require you to accept an endless page of terms and conditions, privacy policy, and more before letting you use their software.\n\nThis seems about right? However, there is a dark side to this. You never read those legal pages --- you probably just scroll past and hit Accept, right?\n\nThis is a big mistake that can cost your entire life.\n\nI want to say that hidden inside those conditions could be something you would never agree to---yet you accepted it without even noticing? Like unknowingly granting permission to access your private data.\n\nAnd the scary part? Once you tick that box, you are legally bound --- there is no turning back.\n\nMany people have fallen victim to these kinds of scams --- but do not worry, you will not be one of them.\n\nHere in this free video, we uncovered every little dark pattern in this kind of scam, so you do not have to suffer.\n\nThat is why we built a tool that does all the hard work for you --- check out the video to see how it works.\n\nUntil next time, be safe\n\nAnas Khan')">
+                                    <h4>Email 2 - Fear About Problem</h4>
+                                    <p>Dark patterns in legal pages</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'AI Email 3', 'Subject: It was just a food order... until that click took away her rights.\n\nHey [FIRST_NAME]!\n\nAh, yes, the never-ending Terms & Conditions you did not bother reading before clicking Accept.\n\nYou never imagined what that simple click could lead to. Let me tell you a real-life story that might change your perspective about these pages.\n\nSarah, a 27-year-old woman living in New Jersey, opened the Uber Eats app one night to satisfy her cravings. But before she could order, a pop-up appeared: We have updated our Terms and Conditions.\n\nAs usual, she just scrolled and ticked that box and moved on to order her food.\n\nA week later, while driving home from work, an Uber Eats driver smashed into her car, badly injuring her.\n\nAfter the recovery, she wanted to sue the company in hopes of justice. But something happened that shocked her entirely.\n\nWhen Sarah demanded compensation from the company for her damages, Uber Eats refused. In court, the company explained to the judge that Sarah had already agreed to a clause in their Terms and Conditions.\n\nThe Clause stated: By accepting these Terms, you agree that any dispute or claim against Uber Eats will be resolved through private arbitration, not in court.\n\nThe judge reviewed the document and sighed. Uber Eats was right --- Sarah had agreed to that clause when she clicked Accept.\n\nEven though she never read it, the court ruled that her tap counted as legal consent. Her case was moved to private arbitration, away from the courtroom, the jury, and the public eye.\n\nSarah realized too late that one simple click had taken away her right to fight for justice.\n\nFrom this story, you can conclude the consequences of not reading those legal pages.\n\nI know it is frustrating to read every little detail in those legal pages. What if someone could do it for you?\n\nBe ready for our next email, because it will make your life easier and safer. So stay tuned...\n\nAnd until next time, Take care\n\nAnas Khan')">
+                                    <h4>Email 3 - Build Trust</h4>
+                                    <p>Sarah's Uber Eats story</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'AI Email 4', 'Subject: How To Avoid The T&C Scam!\n\nHey [FIRST_NAME]\n\nYou already know about the legal pages scam --- I have talked about it before.\n\nThe solution to this problem is simple and effective.\n\nYou have two options.\n\nOption 1: Manually read the entire Terms and Conditions page for hours... and maybe find nothing.\n\nOption 2: Let an AI do it for you --- instantly.\n\nI know that the second option is the best, because, well, you do not want to waste your time.\n\nWe have built an AI called DocuScan AI that exactly solves this problem. It just reads your document and highlights any important, harmful, or destructive points on that page.\n\nYou can check it out by visiting: [LINK]\n\nNot only that, Docuscan will notify you whenever there is a change in these terms and conditions.\n\nSo what are you waiting for? Go and check it out.\n\nUntil next time, stay safe\n\nAnas Khan')">
+                                    <h4>Email 4 - Introducing Solution</h4>
+                                    <p>DocuScan AI reveal</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'AI Email 5', 'Subject: Start Your 14-Day Free Trial Today --- Protect Yourself from Hidden Clauses and Costly Scams.\n\nHey [FIRST_NAME]!\n\nHope you are doing well and not being scammed.\n\nIn the previous email, I provided you with an AI that can make scams from terms and conditions impossible.\n\nI know, you might have been disappointed when you saw that the premium features require a subscription.\n\nWe DocuScan, want customer satisfaction more than anything. And [FIRST_NAME], you are our beloved customer\n\nWe would like to give you a free 14-day trial of all the premium features of our AI, so you can try its features without any risk.\n\nOur premium features include notifying you whenever a software you have updates its terms and conditions.\n\nMoreover, you get priority support from our human support team, so you can ask any legal question you may have.\n\nClick this link to get started [LINK TO TRIAL].\n\nAnd yes, this offer is only valid for 48 hours. So do not miss this opportunity\n\nUntil next time, take care,\n\nAnas Khan')">
+                                    <h4>Email 5 - Offer</h4>
+                                    <p>14-day free trial</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'AI Email 6', 'Subject: Limited Spots Available --- Get 35% Off and Stay Scam-Free Forever!\n\nHey [FIRST_NAME]!\n\nWe noticed you tried the free trial but have not upgraded to a subscription yet.\n\nWhat is the problem? Is the price too high? Is there anything stopping you?\n\nIf the price is the problem, then I am sure that you did not have the full time getting the value out of our AI.\n\nWe want you not to get scammed by those T&C and legal pages.\n\nAnd what is worse than getting a surprise problem? As I mentioned before, companies can put anything in their T&C, and when you blindly accept them, it results in costly consequences.\n\nOur AI eliminates this confusion by summarizing important points, weird terms, and problems in a matter of seconds, so you do not have to sit there and read those terms manually for hours.\n\nBy not reading or using our AI to help you read those T&C, you are willingly letting companies take control of you.\n\nJust for you, [FIRST_NAME], we are giving 50% off your first subscription, so you can benefit from our AI for a fraction of the cost.\n\nClick the link here to avail the offer: [LINK TO OFFER]\n\nAnd remember, it is a first-come, first-served offer --- so grab your spot before the seats run out!\n\nUntil next time, stay safe\n\nAnas Khan')">
+                                    <h4>Email 6 - FOMO</h4>
+                                    <p>50% off limited spots</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'AI Email 7', 'Subject: First 100 Users Get 75% Off - Stay Scam-Free Forever!\n\nHey [FIRST_NAME]!\n\nWe noticed that you did not even bother to take advantage of the previous offer.\n\nI believe two things might be stopping you from getting protected against those tricky Terms & Conditions.\n\nOne is that you love sitting in one place for hours, to read those lengthy T&C by yourself\n\nOR\n\nYou are not yet convinced that you might need our AI.\n\nSomething that still tickles your feet, maybe it is the features or maybe the price?\n\n[FIRST_NAME], our premium AI includes everything --- from summarizing Terms & Conditions and alerting you about new updates, to offering real legal support where you can ask our team any law-related questions directly.\n\nSecondly, let us talk about the price. I understand it might seem a bit out of your budget --- but do not worry! We are giving our loyal customers an exclusive opportunity to grab the premium subscription at 75% off.\n\nTo avail the offer, visit this page: [LINK TO OFFER]\n\nAnd remember, only 100 users get the chance to win. What are you waiting for?\n\nAnd until next time, take care\n\nAnas Khan')">
+                                    <h4>Email 7 - Final Offer</h4>
+                                    <p>75% off last chance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fitness Bubble -->
+                    <div class="bubble-item" data-category="fitness" onclick="toggleBubble(this)">
+                        <div class="bubble-header">
+                            <h3 class="bubble-title">FITNESS</h3>
+                            <p class="bubble-subtitle">6 Email Sequences</p>
+                        </div>
+                        <div class="bubble-content">
+                            <div class="email-list">
+                                <div class="email-item" onclick="openModal(event, 'Fitness Email 1', 'Subject: Want To Become Shredded Before Christmas?\n\nHey [FIRST_NAME]!\n\nEver dreamt of sitting in front of the fireplace on a cold night of Christmas, with 20-inch biceps, and holy abs?\n\nIt might seem like a dream, but dreams are meant to be achieved. And you can literally achieve this dream in just 2 months, before even Christmas arrives\n\nThe only requirement to achieve this dream is just to start working out, but not like everyone else.\n\nYou need to have a plan, a path you can follow, which guarantees the result you want.\n\nAnd what better way than to ask an expert in the field?\n\nA person who can understand you, understand your needs?\n\nWell, you are in luck. Our expert coach, Mr. Noah, who helped hundreds of people achieve their dream physique, can have a one-to-one call with you!\n\nYou can register for a call through our website [LINK]\n\nAnd remember, registration for a one-to-one call is only open for the next 48 hours, with only 100 available spots.\n\nYour improved self is just one call away --- do not miss out\n\nUntil next time, take care\n\nAnas Khan - ShiftX Gym')">
+                                    <h4>Email 1 - Hook</h4>
+                                    <p>Shredded before Christmas</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Fitness Email 2', 'Subject: You Are Missing Out On Having Your Dream Physique!\n\nHey [FIRST_NAME]!\n\nOkay, hear me out!\n\nChristmas is just around the corner, and if you want to make this holiday special, something has to change.\n\nYou do not want to look chubby on that day. You want to look different, like someone special.\n\nBut, this physique can not be just achieved by sitting on the couch, but rather you have to act, and act fast.\n\nAnd also, it is not gonna be achieved by working out randomly in a gym.\n\nYou need a proper plan that covers your routine workout and a proper diet, so you can get that dream of yours completed in no time.\n\nAnd what better way than asking an expert in this field?\n\nJust for you, my friend. We are giving you a free one-to-one session with our expert coach.\n\nHe will guide you on how to achieve your dream physique before Christmas. And this is no B.S.\n\nGet registered fast, as our seats are limited: [LINK]\n\nEither you continue your miserable life, or act now to start a new and improved life\n\nUntil next time, take care\n\nAnas Khan - ShiftX Gym')">
+                                    <h4>Email 2 - Fear</h4>
+                                    <p>Missing dream physique</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Fitness Email 3', 'Subject: How Fast Can You Build Muscle and Lose Fat --- According to Science?\n\nHey [FIRST_NAME]!\n\nEvery person in this world will say that you need at least 2 years to get the perfect body.\n\nThat is their way of saying I give up without starting.\n\nAccording to science, the minimum time required to completely change how you look only takes 30 days.\n\nYou can not just do random workouts and eat randomly in those 30 days --- you need a strict, goal-focused plan.\n\nAnd science also provides that strict plan. Our expert coaches use this plan to train many, many people like you.\n\nPeople who want to change how they live and how they want to look.\n\nOur coaches will provide you with a 60-day transformation pathway that will guarantee a new you.\n\nWe are doing a special event for our customers, where they can get a free one-to-one call with our expert coach, so they can plan together.\n\nJoin the event now at [LINK]\n\nAnd remember, our coaches can not handle thousands of people. We have only 150 available seats.\n\nBe sure to register yourself quickly.\n\nUntil next time, take care.\n\nAnas Khan - ShiftX Gym')">
+                                    <h4>Email 3 - Build Trust</h4>
+                                    <p>Science-backed 30-day transformation</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Fitness Email 4', 'Subject: 30 Days To The Body You have Always Wanted --- No Gym Needed!\n\nHey [FIRST_NAME]!\n\nI will start tomorrow. This sentence, which you repeated right before picking up this phone, is killing you.\n\nAs Apollo Creed once said: There is no tomorrow!.\n\nIt is hard to start and stay consistent with it. Many people do not even know how to start this new journey.\n\nI could give you a 2-page workout guide, but you would not make it to the end.\n\nInstead, what if all the workouts were packed into a single 12-minute video --- complete with the guide, motivation, and tips you have always wanted?\n\nWell, you are in luck. Our Coach, Mr. Noah, will kick-start your dream.\n\nYou just need to watch the full video [LINK]\n\nAnd remember, if you did not start now, you will never CHANGE your life.\n\nUntil next time, take care\n\nAnas Khan - ShiftX Gym')">
+                                    <h4>Email 4 - Free Value</h4>
+                                    <p>12-minute transformation video</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Fitness Email 5', 'Subject: The Number of People Seeing Results In Just 2 Months Is Crazy!\n\nHey [FIRST_NAME]!\n\nYou would not believe me if I told you that about 5760 people joined our program and are really amazed by how much they have changed.\n\nTheir dream came true, just like that.\n\nThey did not work out for 4 hours every day, but rather they just needed 45 minutes 5 times a week.\n\nOur Program, 60-Day Shred Formula helps exactly the people like you.\n\nOur program offers a full diet plan with specific workouts based on your needs. And the best part, a professional coach will guide you through every step.\n\nNot only that, if you sign up right now, you will get a 40% Christmas off on our entire program.\n\nWith this program, you will change your entire body before Christmas arrives, so you can flex those biceps and abs on your homies.\n\nSo before this chance slips away, join the program now: [LINK]\n\nUntil next time, take care.\n\nAnas Khan - ShiftX Gym')">
+                                    <h4>Email 5 - Offer</h4>
+                                    <p>40% Christmas discount</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Fitness Email 6', 'Subject: Last Chance For Changing Your Life Before Christmas..!\n\nHey [FIRST_NAME]!\n\nMaybe achieving incredible physicality before christmas is too hard or impossible Edward started to believe.\n\nHe was on track to build an incredible physique, but with consistent workout for 2 weeks, he did not see the results he expected. This was devastating for him.\n\nEvery year whenever he starts working out, he just blanks after a few weeks.\n\nReason?\n\nHe was working out for no reason.\n\nHe started to believe Maybe achieving incredible physicality before christmas is too hard or impossible\n\nAnd then, he found the Shred Formula, while scrolling online.\n\nHe saw his dream right in front of him, The dream he was working to achieve for many years.\n\nHe joined the program and he finally did it!\n\nWith the help of our coaches, he managed to achieve his dream body in just 2 months.\n\nDo not Miss..!\n\nChristmas will arrive in 2 months. And if you really want to change how you look this christmas...\n\nThen, join the program now: [LINK]\n\nRemember, only 70 seats remain! Act fast --- once they are gone, this golden opportunity is gone for good.\n\nP.S: Not sure if the program is the right suit for ya? Just book a free call with our coach at our website.')">
+                                    <h4>Email 6 - Urgency</h4>
+                                    <p>Last chance before Christmas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Beauty Bubble -->
+                    <div class="bubble-item" data-category="beauty" onclick="toggleBubble(this)">
+                        <div class="bubble-header">
+                            <h3 class="bubble-title">BEAUTY</h3>
+                            <p class="bubble-subtitle">5 Email Sequences</p>
+                        </div>
+                        <div class="bubble-content">
+                            <div class="email-list">
+                                <div class="email-item" onclick="openModal(event, 'Beauty Email 1', 'Subject: It is not just acne. It is your confidence.\n\nHey [First Name]!\n\nIf you have ever woken up, looked in the mirror, and felt like hiding your face again... we get it.\n\nAcne is not just about breakouts --- it is the sting of losing confidence, the stress of trying one product after another, and that little voice that says maybe my skin will never clear.\n\nThat is exactly why we made ClearGlow Serum --- a lightweight, all-natural solution powered by Tea Tree and Niacinamide that targets acne from the root while soothing your skin barrier.\n\nNo burning.\nNo harsh chemicals.\nNo more endless trial and error.\n\nJust calm, healthy skin --- the kind that makes you smile back at your reflection.\n\nYour skin deserves better.\nYour confidence does too.\n\n[Start Your Glow Journey Now]\n\nUntil next time, Stay beautiful,\nAnas Khan')">
+                                    <h4>Email 1 - Hook</h4>
+                                    <p>It's not just acne, it's your confidence</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Beauty Email 2', 'Subject: The real reason your acne keeps coming back\n\nHey [First Name],\n\nLet us be real --- most acne products promise the world but leave your skin feeling worse. They dry out your face, make it peel, and the moment you stop using them... acne returns.\n\nThat is not skincare --- that is a cycle of damage.\n\nBut it is not your fault. You just have not met the right formula yet.\n\nClearGlow Serum heals the root cause:\n-- Fights acne-causing bacteria naturally with Tea Tree.\n-- Repairs and strengthens your skin barrier with Niacinamide.\n-- Prevents future breakouts instead of just hiding them.\n\nNo more irritation. No more endless trial and error.\nJust calm, healthy, glowing skin.\n\n[Discover How ClearGlow Works]\n\nWith care,\nAnas Khan')">
+                                    <h4>Email 2 - Fear</h4>
+                                    <p>Why acne keeps coming back</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Beauty Email 3', 'Subject: 3 quick skincare habits that fight acne naturally\n\nHey [First Name],\n\nWhile ClearGlow does the heavy lifting, here are three small daily habits that make a big difference:\n\n1. Change your pillowcase twice a week. It absorbs oil, dirt, and bacteria that cause breakouts overnight.\n\n2. Use lukewarm water, not hot. Hot water strips your skin of protective oils --- cold or warm keeps the balance.\n\n3. Never skip moisturizer. Dehydrated skin produces more oil, which can lead to an increase in pimples.\n\nCombine these habits with ClearGlow, and you will see results faster than ever.\n\nHealthy skin = consistent care + the right formula.\n\n[Get the Full ClearGlow Routine]\n\nStay glowing,\nAnas Khan')">
+                                    <h4>Email 3 - Build Trust</h4>
+                                    <p>3 skincare habits that fight acne</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Beauty Email 4', 'Subject: The skincare routine that finally heals your skin\n\nHey [First Name],\n\nYou do not need a 10-step skincare routine --- you just need one serum that does it all right.\n\nThat is what ClearGlow Serum was made for:\nTargets acne from the root.\nFades stubborn scars and marks.\nBalances oil and hydrates your skin.\n\nMade with pure Tea Tree and Niacinamide, it is gentle enough for daily use --- and powerful enough to show results within 10 days.\n\nHundreds have already transformed their skin. You can too.\n\n[Shop ClearGlow Serum Today]\n\nWith love,\nAnas Khan')">
+                                    <h4>Email 4 - Solution</h4>
+                                    <p>The routine that heals your skin</p>
+                                </div>
+                                <div class="email-item" onclick="openModal(event, 'Beauty Email 5', 'Subject: For your first order only --- 20% OFF ends tonight\n\nHey [First Name],\n\nImagine waking up to clear, smooth, makeup-free skin. That is what ClearGlow users experience every single morning.\n\nTo help you start your own glow journey, here is an exclusive offer:\nUse code GLOW20 for 20% OFF your first order --- valid till midnight tonight!\n\nThis is your chance to say goodbye to acne and hello to confidence, finally.\n\n[Claim Your 20% Discount Now]\n\nYour skin deserves this.\nYour confidence deserves this.\n\nStay radiant,\nAnas Khan')">
+                                    <h4>Email 5 - Offer</h4>
+                                    <p>20% OFF ends tonight</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-container">
+                    <div class="about-grid">
+                        <div>
+                            <p style="font-size: 20px; color: #ddd; line-height: 1.9; margin-bottom: 25px;">
+                                Hey there, I'm <span style="color: #FF204E; font-weight: 700;">Anas Khan</span> – a Copywriter who helps businesses turn readers into buyers.
+                            </p>
+                            <p style="font-size: 18px; color: #bbb; line-height: 1.8;">
+                                Since 2023, I've focused on mastering three high-demand niches where words have the power to transform sales:
+                            </p>
+                        </div>
+                        
+                        <div style="display: grid; gap: 25px;">
+                            <div class="niche-card">
+                                <h4>Artificial Intelligence Products</h4>
+                                <p>I turn complex features into simple, irresistible benefits. AI sells because it promises efficiency, speed, and smarter results – and I know how to capture that in words.</p>
+                            </div>
+                            <div class="niche-card">
+                                <h4>Fitness & Sports</h4>
+                                <p>As a footballer myself, I understand the drive for results, motivation, and discipline. I write copy that inspires action and speaks to the mindset of athletes and fitness enthusiasts.</p>
+                            </div>
+                            <div class="niche-card">
+                                <h4>Beauty</h4>
+                                <p>Beauty is more than looks; it's about confidence, transformation, and desire. My copy connects emotionally, showing customers why your product is the key to the lifestyle they want.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 28px; color: #FF204E; margin-bottom: 20px; font-weight: 700;">What Makes My Copy Different?</h3>
+                            <p style="font-size: 18px; color: #ccc; line-height: 1.8; margin-bottom: 30px;">
+                                Every word I write has a purpose: to grab attention, build desire, and move customers toward action. I don't write fluff. I write strategy-driven copy that gets results.
+                            </p>
+                        </div>
+
+                        <div style="padding: 30px; background: linear-gradient(135deg, rgba(255,32,78,0.2), rgba(160,21,62,0.1)); border-radius: 15px; border: 1px solid #FF204E;">
+                            <h3 style="font-size: 26px; color: #FF204E; margin-bottom: 15px; font-weight: 700;">My Promise to You</h3>
+                            <p style="font-size: 18px; color: #fff; line-height: 1.8;">
+                                I don't just deliver words – I deliver growth. When you work with me, you get manipulated copy designed to earn attention and drive results, backed by a clear strategy linked to your brand.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 class="section-title">Amazed By My Work?</h2>
+                <p style="font-size: clamp(20px, 3vw, 32px); color: #aaa; margin-bottom: 40px; font-weight: 300;">
+                    Then, let's book a call to make your brand really stand out.
+                </p>
+                <div class="offer-box">
+                    <p style="font-size: 24px; color: #fff; font-weight: 600;">🎁 Special Offer: 1 Week of FREE Copywriting for New Clients</p>
+                </div>
+                <br>
+                <a href="mailto:mu.anaskhanyt@gmail.com" class="cta-button">Book A Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anas Khan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <a href="mailto:mu.anaskhanyt@gmail.com" class="contact-btn gmail-btn" title="Email me">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+        <a href="https://wa.me/923493146696" target="_blank" class="contact-btn whatsapp-btn" title="WhatsApp me">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="email-header">
+                <div class="email-from">
+                    <strong>From:</strong> Anas Khan
+                </div>
+                <div class="email-subject" id="modalTitle"></div>
+            </div>
+            <div class="email-body" id="modalContent"></div>
+            <div class="email-footer">
+                This is a sample email copy created by Anas Khan - Professional Copywriter
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Particle Animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: 0, y: 0 };
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = ['#FF204E', '#A0153E', '#ffffff'][Math.floor(Math.random() * 3)];
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 150 && distance > 0) {
+                    const force = (150 - distance) / 150;
+                    this.x -= (dx / distance) * force * 3;
+                    this.y -= (dy / distance) * force * 3;
+                }
+
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                particles.forEach(particle => {
+                    const dx = this.x - particle.x;
+                    const dy = this.y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        ctx.strokeStyle = `rgba(255, 32, 78, ${1 - distance / 100})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(this.x, this.y);
+                        ctx.lineTo(particle.x, particle.y);
+                        ctx.stroke();
+                    }
+                });
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.3)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        initParticles();
+        animateParticles();
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        document.getElementById('hero').classList.add('visible');
+
+        // Portfolio Bubble Toggle
+        let activeCategory = null;
+
+        function toggleBubble(element) {
+            const allBubbles = document.querySelectorAll('.bubble-item');
+            const category = element.getAttribute('data-category');
+            
+            if (activeCategory === category) {
+                element.classList.remove('expanded');
+                allBubbles.forEach(bubble => {
+                    bubble.classList.remove('inactive');
+                });
+                activeCategory = null;
+            } else {
+                allBubbles.forEach(bubble => {
+                    bubble.classList.remove('expanded');
+                    if (bubble !== element) {
+                        bubble.classList.add('inactive');
+                    } else {
+                        bubble.classList.remove('inactive');
+                    }
+                });
+                element.classList.add('expanded');
+                activeCategory = category;
+            }
+        }
+
+        // Modal Functions
+        function openModal(event, title, content) {
+            event.stopPropagation();
+            event.preventDefault();
+            
+            const subjectMatch = content.match(/Subject: (.+?)[\n\r]/);
+            const subject = subjectMatch ? subjectMatch[1] : title;
+            
+            const bodyContent = content.replace(/Subject: .+?[\n\r]+/, '').trim();
+            
+            const formattedBody = bodyContent.split('\n\n').map(para => 
+                para.trim() ? `<p>${para.trim().replace(/\n/g, '<br>')}</p>` : ''
+            ).join('');
+            
+            document.getElementById('modal').classList.add('active');
+            document.getElementById('modalTitle').textContent = subject;
+            document.getElementById('modalContent').innerHTML = formattedBody;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Card hover effects
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.style.opacity = '0.5';
+                        otherCard.style.transform = 'scale(0.95)';
+                    }
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                cards.forEach(otherCard => {
+                    otherCard.style.opacity = '1';
+                    otherCard.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        // CTA button animation
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const contactButtons = document.querySelectorAll('.contact-btn');
+                contactButtons.forEach(btn => {
+                    btn.classList.add('ring-now');
+                    setTimeout(() => {
+                        btn.classList.remove('ring-now');
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
